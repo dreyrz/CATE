@@ -1,4 +1,4 @@
 class Images {
-  static const spotifyBlackLogo =
-      "assets/images/spotify/Spotify_Logo_RGB_Black.png";
+  static const CATeLogo = "assets/images/CATe Logo 2.png";
+  static const CATeBackground = "assets/images/CATe slides-1 1.png";
 }

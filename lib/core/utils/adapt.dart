@@ -28,6 +28,7 @@ class Adapt {
 
   static init(int number) {
     int uiWidth = number is int ? number : 375;
+
     _ratio = _width / uiWidth;
   }
 
