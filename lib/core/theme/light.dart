@@ -6,6 +6,8 @@ mixin ThemeApp {
   static ThemeData get light => ThemeData.light().copyWith(
         primaryColor: HexColor("#6D4BF8"),
         accentColor: HexColor("#FFFFFF"),
+        hintColor: HexColor("#A6A5AA"),
+        shadowColor: HexColor("##EDEDED"),
         backgroundColor: HexColor("#000000"),
         scaffoldBackgroundColor: HexColor("#000000"),
         buttonColor: HexColor("#6D4BF8"),
@@ -48,9 +50,9 @@ mixin ThemeApp {
               fontSize: 14,
             ),
           ),
-          headline4: GoogleFonts.luckiestGuy(
+          headline4: GoogleFonts.montserrat(
             textStyle: TextStyle(
-              color: HexColor("#FFFFFF"),
+              color: HexColor("#000000"),
               fontWeight: FontWeight.w400,
               fontSize: 12,
             ),
