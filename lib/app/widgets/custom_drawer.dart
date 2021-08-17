@@ -1,3 +1,4 @@
+import 'package:cate/app/data/services/drawer_navigation.dart';
 import 'package:cate/app/modules/home/home_controller.dart';
 
 import 'package:cate/core/utils/adapt.dart';
@@ -12,20 +13,7 @@ import 'line.dart';
 class CustomDrawer extends StatelessWidget {
   CustomDrawer({Key? key}) : super(key: key);
 
-  final homeController = Get.find<HomeController>();
-
-  void handleDrawerNavigation({required int index}) {
-    switch (index) {
-      case 0:
-        homeController.currentDrawerIndex = 0;
-        Get.offAndToNamed(Routes.home);
-        break;
-      case 1:
-        homeController.currentDrawerIndex = 1;
-        Get.offAndToNamed(Routes.listing);
-        break;
-    }
-  }
+  final drawerNavigation = Get.find<DrawerNavigationService>();
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +27,9 @@ class CustomDrawer extends StatelessWidget {
           child: Column(
             children: [
               CustomDrawerTile(
-                selected: homeController.currentDrawerIndex == 0,
+                selected: drawerNavigation.currentDrawerIndex == 0,
                 label: Strings.home,
-                onTap: () => handleDrawerNavigation(index: 0),
+                onTap: () => drawerNavigation.handleDrawerNavigation(index: 0),
               ),
               Padding(
                 padding:
@@ -49,9 +37,9 @@ class CustomDrawer extends StatelessWidget {
                 child: Line(),
               ),
               CustomDrawerTile(
-                selected: homeController.currentDrawerIndex == 1,
+                selected: drawerNavigation.currentDrawerIndex == 1,
                 label: Strings.listing,
-                onTap: () => handleDrawerNavigation(index: 1),
+                onTap: () => drawerNavigation.handleDrawerNavigation(index: 1),
               )
             ],
           ),

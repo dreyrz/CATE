@@ -1,6 +1,8 @@
+import 'package:cate/app/data/services/drawer_navigation.dart';
 import 'package:cate/app/widgets/background.dart';
 import 'package:cate/app/widgets/button.dart';
 import 'package:cate/app/widgets/custom_drawer.dart';
+import 'package:cate/app/widgets/custom_drawer_icon.dart';
 import 'package:cate/app/widgets/custom_text.dart';
 import 'package:cate/core/utils/adapt.dart';
 import 'package:cate/core/utils/images.dart';
@@ -19,7 +21,11 @@ class HomePage extends GetView<HomeController> {
     return Background(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(),
+        appBar: AppBar(
+          actions: [
+            CustomDrawerIcon(),
+          ],
+        ),
         endDrawer: CustomDrawer(),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: Adapt.px(20)),
@@ -42,7 +48,8 @@ class HomePage extends GetView<HomeController> {
               ),
               Button(
                 label: Strings.knowTheList,
-                onPressed: () => Get.offAndToNamed(Routes.listing),
+                onPressed: () => controller.drawerNavigationService
+                    .handleDrawerNavigation(index: 1),
               ),
               SizedBox(
                 height: Adapt.px(45),
