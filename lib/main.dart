@@ -15,7 +15,7 @@ class CATe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: "C.A.T.E",
+      title: "CATe",
       debugShowCheckedModeBanner: false,
       theme: ThemeApp.light,
       initialBinding: HomeBinding(),

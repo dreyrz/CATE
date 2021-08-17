@@ -11,17 +11,16 @@ import 'line.dart';
 
 class CustomDrawer extends StatelessWidget {
   CustomDrawer({Key? key}) : super(key: key);
+
   final homeController = Get.find<HomeController>();
 
   void handleDrawerNavigation({required int index}) {
     switch (index) {
       case 0:
-        Get.back();
         homeController.currentDrawerIndex = 0;
         Get.offAndToNamed(Routes.home);
         break;
       case 1:
-        Get.back();
         homeController.currentDrawerIndex = 1;
         Get.offAndToNamed(Routes.listing);
         break;

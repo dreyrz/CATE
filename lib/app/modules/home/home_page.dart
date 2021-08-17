@@ -5,6 +5,7 @@ import 'package:cate/core/utils/adapt.dart';
 import 'package:cate/core/utils/images.dart';
 
 import 'package:cate/core/utils/strings.dart';
+import 'package:cate/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -49,7 +50,7 @@ class HomePage extends GetView<HomeController> {
                 ),
                 Button(
                   label: Strings.knowTheList,
-                  onPressed: () {},
+                  onPressed: () => Get.offAndToNamed(Routes.listing),
                 ),
                 SizedBox(
                   height: Adapt.px(45),
