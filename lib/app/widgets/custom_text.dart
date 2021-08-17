@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class CustomText extends StatelessWidget {
   final String text;
   final int weight;
-
+  final double? fontSize;
   final Color? color;
-  const CustomText(this.text, {this.weight = 1, this.color, Key? key})
+  const CustomText(this.text,
+      {this.weight = 1, this.color, this.fontSize, Key? key})
       : super(key: key);
 
   @override
@@ -23,8 +24,7 @@ class CustomText extends StatelessWidget {
                       ? textTheme.headline2
                       : textTheme.headline1)!
           .copyWith(
-        color: color ?? theme.accentColor,
-      ),
+              color: color ?? theme.accentColor, fontSize: fontSize ?? null),
     );
   }
 }

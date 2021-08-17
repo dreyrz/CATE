@@ -1,4 +1,5 @@
 import 'package:cate/app/widgets/button.dart';
+import 'package:cate/app/widgets/custom_drawer.dart';
 import 'package:cate/app/widgets/custom_text.dart';
 import 'package:cate/core/utils/adapt.dart';
 import 'package:cate/core/utils/images.dart';
@@ -25,15 +26,8 @@ class HomePage extends GetView<HomeController> {
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.dehaze),
-              ),
-            ],
-          ),
+          appBar: AppBar(),
+          endDrawer: CustomDrawer(),
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: Adapt.px(20)),
             child: Column(
