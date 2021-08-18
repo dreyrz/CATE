@@ -1,3 +1,4 @@
+import 'package:cate/app/data/model/cat.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,22 +8,46 @@ class ListingController extends GetxController {
   final ListingRepository repository;
   ListingController(this.repository);
   final ScrollController scrollController = ScrollController();
-  final list = <int>[].obs;
+  final searchController = TextEditingController();
 
+  final _endReached = false.obs;
+  get endReached => this._endReached.value;
+  set endReached(value) => this._endReached.value = value;
+
+  final List<Cat> catBreedsList = [];
+  final filteredCatBreedsList = <Cat>[].obs;
   @override
   void onInit() {
-    list.assignAll(List.generate(10, (index) => index));
+    getTwelveCatbreeds();
     scrollController.addListener(() {
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
-        getMoreData();
+        getTwelveCatbreeds();
       }
     });
+
     super.onInit();
   }
 
-  void getMoreData() {
-    list.addAll(List.generate(10, (index) => list.length + index + 1));
-    print(list.length);
+  Future getTwelveCatbreeds() async {
+    final response = await repository.getTwelveCatbreeds();
+    if (response.length == 0) {
+      endReached = true;
+    } else {
+      catBreedsList.addAll(response);
+      filteredCatBreedsList.addAll(response);
+    }
+  }
+
+  void searchBreed(String search) {
+    if (search.isEmpty) {
+      filteredCatBreedsList.assignAll(catBreedsList);
+    } else {
+      filteredCatBreedsList.assignAll(catBreedsList.where((breed) {
+        final breedName = breed.name.toLowerCase();
+        final searchLowerCase = search.toLowerCase();
+        return breedName.contains(searchLowerCase);
+      }).toList());
+    }
   }
 }

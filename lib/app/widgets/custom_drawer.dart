@@ -1,9 +1,8 @@
-import 'package:cate/app/data/services/drawer_navigation.dart';
-import 'package:cate/app/modules/home/home_controller.dart';
+import 'package:cate/app/data/interfaces/drawer_navigation_interface.dart';
 
 import 'package:cate/core/utils/adapt.dart';
 import 'package:cate/core/utils/strings.dart';
-import 'package:cate/routes/routes.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +12,7 @@ import 'line.dart';
 class CustomDrawer extends StatelessWidget {
   CustomDrawer({Key? key}) : super(key: key);
 
-  final drawerNavigation = Get.find<DrawerNavigationService>();
+  final drawerNavigation = Get.find<IDrawerNavigation>();
 
   @override
   Widget build(BuildContext context) {

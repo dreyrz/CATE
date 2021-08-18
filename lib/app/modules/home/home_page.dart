@@ -1,4 +1,3 @@
-import 'package:cate/app/data/services/drawer_navigation.dart';
 import 'package:cate/app/widgets/background.dart';
 import 'package:cate/app/widgets/button.dart';
 import 'package:cate/app/widgets/custom_drawer.dart';
@@ -8,7 +7,7 @@ import 'package:cate/core/utils/adapt.dart';
 import 'package:cate/core/utils/images.dart';
 
 import 'package:cate/core/utils/strings.dart';
-import 'package:cate/routes/routes.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -48,7 +47,7 @@ class HomePage extends GetView<HomeController> {
               ),
               Button(
                 label: Strings.knowTheList,
-                onPressed: () => controller.drawerNavigationService
+                onPressed: () => controller.drawerNavigation
                     .handleDrawerNavigation(index: 1),
               ),
               SizedBox(

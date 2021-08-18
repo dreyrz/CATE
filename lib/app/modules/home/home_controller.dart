@@ -1,7 +1,10 @@
-import 'package:cate/app/data/services/drawer_navigation.dart';
+import 'package:cate/app/data/interfaces/drawer_navigation_interface.dart';
 
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  final drawerNavigationService = Get.find<DrawerNavigationService>();
+  final IDrawerNavigation drawerNavigation;
+  HomeController(
+    this.drawerNavigation,
+  );
 }

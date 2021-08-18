@@ -1,8 +1,9 @@
+import 'package:cate/app/data/interfaces/drawer_navigation_interface.dart';
 import 'package:cate/routes/routes.dart';
 import 'package:get/get.dart';
 
-class DrawerNavigationService extends GetxService {
-  int? currentDrawerIndex;
+class DrawerNavigation extends GetxService implements IDrawerNavigation {
+  late int? currentDrawerIndex;
   @override
   void onInit() {
     currentDrawerIndex = 0;
