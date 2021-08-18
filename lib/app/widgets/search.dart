@@ -3,10 +3,8 @@ import 'package:cate/core/utils/strings.dart';
 import 'package:flutter/material.dart';
 
 class Search extends StatelessWidget {
-  final TextEditingController controller;
   final ValueChanged<String> onChanged;
-  const Search({required this.controller, required this.onChanged, Key? key})
-      : super(key: key);
+  const Search({required this.onChanged, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,7 @@ class Search extends StatelessWidget {
           borderRadius: BorderRadius.circular(Adapt.px(5)),
         ),
       ),
-      style: Theme.of(context).textTheme.headline4,
+      style: Theme.of(context).textTheme.headline5,
     );
   }
 }

@@ -15,13 +15,13 @@ class DrawerNavigation extends GetxService implements IDrawerNavigation {
       case 0:
         if (currentDrawerIndex != 0) {
           currentDrawerIndex = 0;
-          Get.offAndToNamed(Routes.home);
+          Get.offAllNamed(Routes.home);
         }
         break;
       case 1:
         if (currentDrawerIndex != 1) {
           currentDrawerIndex = 1;
-          Get.offAndToNamed(Routes.listing);
+          Get.offAllNamed(Routes.listing);
         }
         break;
     }

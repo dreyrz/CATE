@@ -39,18 +39,26 @@ mixin ThemeApp {
             textStyle: TextStyle(
                 color: HexColor("#FFFFFF"),
                 fontWeight: FontWeight.w400,
-                fontSize: 16,
+                fontSize: 20,
                 height: 1.2,
                 letterSpacing: 1),
           ),
           headline3: GoogleFonts.luckiestGuy(
+            textStyle: TextStyle(
+                color: HexColor("#FFFFFF"),
+                fontWeight: FontWeight.w400,
+                fontSize: 16,
+                height: 1.2,
+                letterSpacing: 1),
+          ),
+          headline4: GoogleFonts.luckiestGuy(
             textStyle: TextStyle(
               color: HexColor("#FFFFFF"),
               fontWeight: FontWeight.w400,
               fontSize: 14,
             ),
           ),
-          headline4: GoogleFonts.montserrat(
+          headline5: GoogleFonts.montserrat(
             textStyle: TextStyle(
               color: HexColor("#000000"),
               fontWeight: FontWeight.w400,

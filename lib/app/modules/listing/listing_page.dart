@@ -1,11 +1,12 @@
 import 'package:cate/app/widgets/background.dart';
-import 'package:cate/app/widgets/cat_breed_card.dart';
+import 'package:cate/app/widgets/breed_card.dart';
 import 'package:cate/app/widgets/custom_drawer.dart';
 import 'package:cate/app/widgets/custom_drawer_icon.dart';
 import 'package:cate/app/widgets/custom_text.dart';
 import 'package:cate/app/widgets/loading.dart';
 import 'package:cate/app/widgets/search.dart';
 import 'package:cate/core/utils/adapt.dart';
+import 'package:cate/core/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +29,6 @@ class ListingPage extends GetView<ListingController> {
           child: Column(
             children: [
               Search(
-                controller: controller.searchController,
                 onChanged: (search) => controller.searchBreed(search),
               ),
               SizedBox(
@@ -44,19 +44,28 @@ class ListingPage extends GetView<ListingController> {
                       crossAxisSpacing: Adapt.px(20),
                       mainAxisSpacing: Adapt.px(20),
                     ),
-                    itemCount: controller.filteredCatBreedsList.length + 1,
+                    itemCount: controller.isSearching
+                        ? controller.filteredCatBreedsList.length
+                        : controller.filteredCatBreedsList.length + 1,
                     itemBuilder: (context, index) {
-                      return index == controller.filteredCatBreedsList.length
-                          ? Obx(() => controller.endReached
-                              ? Center(
-                                  child: CustomText(
-                                    "End reached",
-                                    weight: 2,
-                                  ),
-                                )
-                              : Loading())
-                          : CatBreedCard(
-                              cat: controller.filteredCatBreedsList[index]);
+                      return controller.error
+                          ? CustomText(
+                              Strings.errorOcurred,
+                              weight: 3,
+                            )
+                          : index == controller.filteredCatBreedsList.length
+                              ? Obx(() => controller.endReached
+                                  ? Center(
+                                      child: CustomText(
+                                        Strings.endReached,
+                                        weight: 3,
+                                      ),
+                                    )
+                                  : controller.isSearching
+                                      ? SizedBox()
+                                      : Loading())
+                              : BreedCard(
+                                  cat: controller.filteredCatBreedsList[index]);
                     },
                   ),
                 ),

@@ -4,5 +4,6 @@ abstract class IApi {
   late Dio? dio;
   late int? page;
   void defineHeaders();
-  Future searchTwelveBreeds();
+  Future getTwelveBreeds();
+  Future getOtherPhotos(breedId);
 }

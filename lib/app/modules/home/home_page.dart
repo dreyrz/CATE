@@ -32,18 +32,18 @@ class HomePage extends GetView<HomeController> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               SizedBox(
-                height: Adapt.px(64),
+                height: Adapt.hp(4),
               ),
               CustomText(Strings.cateMission),
               SizedBox(
-                height: Adapt.px(20),
+                height: Adapt.hp(3),
               ),
               CustomText(
-                Strings.cateMissionDescription.toUpperCase(),
-                weight: 2,
+                Strings.cateMissionDescription,
+                weight: 3,
               ),
               SizedBox(
-                height: Adapt.px(20),
+                height: Adapt.hp(3),
               ),
               Button(
                 label: Strings.knowTheList,
@@ -51,7 +51,7 @@ class HomePage extends GetView<HomeController> {
                     .handleDrawerNavigation(index: 1),
               ),
               SizedBox(
-                height: Adapt.px(45),
+                height: Adapt.hp(3),
               ),
               Image(
                 image: AssetImage(Images.CATeLogo),

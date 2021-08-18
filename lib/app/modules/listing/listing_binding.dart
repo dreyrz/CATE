@@ -11,8 +11,9 @@ class ListingBinding implements Bindings {
   void dependencies() {
     Get.lazyPut<Dio>(() => Dio());
     Get.lazyPut<IApi>(() => Api(Get.find<Dio>()));
+    Get.lazyPut<ListingRepository>(() => ListingRepository(Get.find<IApi>()));
     Get.lazyPut<ListingController>(
-      () => ListingController(ListingRepository(Get.find<IApi>())),
+      () => ListingController(Get.find<ListingRepository>()),
     );
   }
 }

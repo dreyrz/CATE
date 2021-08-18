@@ -1,6 +1,7 @@
 import 'package:cate/core/utils/images.dart';
 
 class Cat {
+  final String id;
   final String name;
   final String description;
   final String temperament;
@@ -19,7 +20,8 @@ class Cat {
   final String imageUrl;
 
   const Cat(
-      {required this.name,
+      {required this.id,
+      required this.name,
       required this.description,
       required this.temperament,
       required this.origin,
@@ -35,7 +37,8 @@ class Cat {
       required this.imageUrl});
 
   Cat.fromMap(Map<String, dynamic> map)
-      : name = map["name"] ?? "Unknown name",
+      : id = map["id"] ?? "Unknown id",
+        name = map["name"] ?? "Unknown name",
         description = map["description"] ?? "Unknown description",
         temperament = map["temperament"] ?? "Unknown temperament",
         origin = map["origin"] ?? "Unknown origin",
@@ -54,7 +57,7 @@ class Cat {
 
   @override
   String toString() {
-    return """Cat name $name description $description temperament $temperament
+    return """Cat id $id name $name description $description temperament $temperament
     origin $origin lifeSpan $lifeSpan adaptability $adaptability
     affectionLevel $affectionLevel childFriendly $childFriendly
     grooming $grooming intelligence $intelligence healthIssues $healthIssues

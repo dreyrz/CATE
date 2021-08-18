@@ -1,3 +1,5 @@
+import 'package:cate/app/modules/breed_info/breed_info_binding.dart';
+import 'package:cate/app/modules/breed_info/breed_info_page.dart';
 import 'package:cate/app/modules/home/home_binding.dart';
 import 'package:cate/app/modules/home/home_page.dart';
 import 'package:cate/app/modules/listing/listing_binding.dart';
@@ -17,6 +19,11 @@ class Pages {
       name: Routes.listing,
       page: () => ListingPage(),
       binding: ListingBinding(),
+    ),
+    GetPage(
+      name: Routes.breedInfo,
+      page: () => BreedInfoPage(),
+      binding: BreedInfoBinding(),
     ),
   ];
 }

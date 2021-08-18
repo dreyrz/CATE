@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cate/app/data/interfaces/api_interface.dart';
 import 'package:cate/core/utils/env.dart';
 import 'package:dio/dio.dart';
@@ -20,16 +22,37 @@ class Api extends GetxService implements IApi {
   }
 
   @override
-  Future searchTwelveBreeds() async {
-    final response = await dio!.get(
-      Env.apiUrl + "breeds",
-      queryParameters: {
-        "limit": 12,
-        "page": page,
-      },
-    );
+  Future getTwelveBreeds() async {
+    try {
+      final response = await dio!.get(
+        Env.apiUrl + "breeds",
+        queryParameters: {
+          "limit": 12,
+          "page": page,
+        },
+      );
 
-    page = page! + 1;
-    return response.data;
+      page = page! + 1;
+      return response.data;
+    } catch (e) {
+      log(e.toString());
+      return null;
+    }
+  }
+
+  @override
+  Future getOtherPhotos(breedId) async {
+    try {
+      final response =
+          await dio!.get(Env.apiUrl + "images/search", queryParameters: {
+        "breed_id": breedId,
+        "limit": 9,
+      });
+
+      return response.data;
+    } catch (e) {
+      log(e.toString());
+      return null;
+    }
   }
 }
