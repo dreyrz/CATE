@@ -26,7 +26,7 @@ class _SkillLevelState extends State<SkillLevel> {
     ));
 
     highlighted.add(SizedBox(
-      width: Adapt.wp(10),
+      width: Adapt.wp(6),
     ));
     highlighted.addAll(
       List.generate(
@@ -62,7 +62,7 @@ class _SkillLevelState extends State<SkillLevel> {
       ),
     );
     unhighlighted.add(SizedBox(
-      width: Adapt.wp(2),
+      width: Adapt.wp(1),
     ));
     return highlighted + unhighlighted;
   }
