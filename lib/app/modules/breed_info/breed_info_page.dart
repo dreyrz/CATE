@@ -168,21 +168,27 @@ class BreedInfoPage extends GetView<BreedInfoController> {
               ),
               SizedBox(
                 height: Adapt.hp(50),
-                child: Obx(
-                  () => GridView.builder(
-                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 150,
-                      childAspectRatio: 1,
-                      crossAxisSpacing: Adapt.px(5),
-                      mainAxisSpacing: Adapt.px(5),
-                    ),
-                    itemCount: controller.imagesList.length,
-                    itemBuilder: (context, index) {
-                      return FadeNetworkImage(
-                          imageUrl: controller.imagesList[index]);
-                    },
-                  ),
-                ),
+                child: controller.error
+                    ? CustomText(
+                        Strings.errorOcurred,
+                        weight: 3,
+                      )
+                    : Obx(
+                        () => GridView.builder(
+                          gridDelegate:
+                              SliverGridDelegateWithMaxCrossAxisExtent(
+                            maxCrossAxisExtent: 150,
+                            childAspectRatio: 1,
+                            crossAxisSpacing: Adapt.px(5),
+                            mainAxisSpacing: Adapt.px(5),
+                          ),
+                          itemCount: controller.imagesList.length,
+                          itemBuilder: (context, index) {
+                            return FadeNetworkImage(
+                                imageUrl: controller.imagesList[index]);
+                          },
+                        ),
+                      ),
               ),
             ],
           ),
