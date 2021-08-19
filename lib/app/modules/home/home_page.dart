@@ -31,27 +31,27 @@ class HomePage extends GetView<HomeController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              SizedBox(
-                height: Adapt.hp(4),
+              Spacer(
+                flex: 25,
               ),
               CustomText(Strings.cateMission),
-              SizedBox(
-                height: Adapt.hp(3),
+              Spacer(
+                flex: 20,
               ),
               CustomText(
                 Strings.cateMissionDescription,
                 weight: 3,
               ),
-              SizedBox(
-                height: Adapt.hp(3),
+              Spacer(
+                flex: 20,
               ),
               Button(
                 label: Strings.knowTheList,
                 onPressed: () => controller.drawerNavigation
                     .handleDrawerNavigation(index: 1),
               ),
-              SizedBox(
-                height: Adapt.hp(3),
+              Spacer(
+                flex: 35,
               ),
               Image(
                 image: AssetImage(Images.CATeLogo),

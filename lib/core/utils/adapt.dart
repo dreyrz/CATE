@@ -59,11 +59,11 @@ class Adapt {
     return _botBarH;
   }
 
-  static isLargeScreen() => _isLargeScreen;
+  static bool isLargeScreen() => _isLargeScreen;
 
-  static isMediumScreen() => _isMediumScreen;
+  static bool isMediumScreen() => _isMediumScreen;
 
-  static isSmallScreen() => !_isLargeScreen && !_isMediumScreen;
+  static bool isSmallScreen() => !_isLargeScreen && !_isMediumScreen;
 
   static double roundToNearestNumber(double number) {
     try {
