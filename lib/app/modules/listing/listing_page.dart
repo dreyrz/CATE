@@ -15,6 +15,7 @@ import 'listing_controller.dart';
 class ListingPage extends GetView<ListingController> {
   @override
   Widget build(BuildContext context) {
+    controller.getTwelveCatbreeds();
     return Background(
       child: Scaffold(
         backgroundColor: Colors.transparent,

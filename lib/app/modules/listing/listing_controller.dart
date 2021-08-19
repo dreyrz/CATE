@@ -28,8 +28,7 @@ class ListingController extends GetxController {
 
   @override
   void onInit() {
-    getTwelveCatbreeds();
-    scrollController.addListener(() {
+    scrollController.addListener(() async {
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
         getTwelveCatbreeds();
