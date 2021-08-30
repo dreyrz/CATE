@@ -9,6 +9,7 @@ class StrokedText extends StatelessWidget {
     return Stack(
       children: [
         Text(text,
+            textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headline3!.copyWith(
                 foreground: Paint()
                   ..style = PaintingStyle.stroke
@@ -16,6 +17,7 @@ class StrokedText extends StatelessWidget {
                   ..color = Theme.of(context).primaryColor)),
         Text(
           text,
+          textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headline3,
         ),
       ],
